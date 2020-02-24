@@ -100,15 +100,17 @@ public class MainActivity extends AppCompatActivity {
         String inputHome = homeText.getText().toString();
         String inputAway = awayText.getText().toString();
 
-        if(!inputAway.equals("")&&!inputHome.equals("")){
-
-            Intent intent =  new Intent(this,MatchActivity.class);
-            intent.putExtra("inputHome", inputHome);
-            intent.putExtra("inputAway", inputAway);
-            intent.putExtra("logoHome", imageUri1.toString());
-            intent.putExtra("logoAway", imageUri2.toString());
-
-            startActivity(intent);
+        if(!inputAway.equals("") && !inputHome.equals("")){
+            if(bitmap1!= null && bitmap2 != null) {
+                Intent intent = new Intent(this, MatchActivity.class);
+                intent.putExtra("inputHome", inputHome);
+                intent.putExtra("inputAway", inputAway);
+                intent.putExtra("logoHome", imageUri1.toString());
+                intent.putExtra("logoAway", imageUri2.toString());
+                startActivity(intent);
+            }else {
+                Toast.makeText(this, "Lengkapi Data Terlebih dahulu!!", Toast.LENGTH_SHORT).show();
+            }
         }else {
             Toast.makeText(this, "Lengkapi Data Terlebih dahulu!!", Toast.LENGTH_SHORT).show();
         }
