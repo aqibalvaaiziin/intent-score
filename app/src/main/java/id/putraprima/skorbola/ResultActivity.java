@@ -25,8 +25,10 @@ public class ResultActivity extends AppCompatActivity {
             result.setText(String.valueOf(homeResult) + " - "+ String.valueOf(awayResult));
             if(homeResult > awayResult){
                 winner.setText( homeName + " Memenangkan Pertandingan");
-            }else {
+            }else if(homeResult < awayResult){
                 winner.setText( awayName + " Memenangkan Pertandingan");
+            }else {
+                winner.setText("Pertandingan berakhir imbang");
             }
         }
     }
